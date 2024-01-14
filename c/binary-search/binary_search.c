@@ -9,12 +9,12 @@ const int *binary_search(int value, const int *arr, size_t length) {
     size_t maximum = length;
     int max_loops = 0;
 
-    // print("length %lu\n", length);
-    // print("value %i\n", value);
+    // printf("length %lu\n", length);
+    // printf("value %i\n", value);
 
     while(length > 0) {
         max_loops++;
-        // print("halfway %lu - value %i\n", half, arr[half]);
+        // printf("halfway %lu - value %i\n", half, arr[half]);
 
         if (arr[half] == value) {
             return &arr[half];
@@ -28,7 +28,7 @@ const int *binary_search(int value, const int *arr, size_t length) {
         // 1, 3, 4, 6, 8, 9, 11
 
         if (arr[half] < value) {
-            // print("Larger\n");
+            // printf("Larger\n");
             minimum = half + 1;
             half = ((maximum - minimum) / 2) + minimum;
         }
@@ -41,7 +41,7 @@ const int *binary_search(int value, const int *arr, size_t length) {
         // 1, 3, 4, 6, 8, 9, 11 
 
         if (arr[half] > value) {
-            // print("Smaller\n");
+            // printf("Smaller\n");
             if (half == 0) break;
             maximum = half - 1;
             half = ((maximum - minimum) / 2) - 1;
@@ -51,13 +51,13 @@ const int *binary_search(int value, const int *arr, size_t length) {
             half = maximum;
         }
 
-        // print("Maximum %lu\n", maximum);
-        // print("Minimum %lu\n", minimum);
+        // printf("Maximum %lu\n", maximum);
+        // printf("Minimum %lu\n", minimum);
 
-        // print("Next half %lu\n", half);
+        // printf("Next half %lu\n", half);
 
         if (minimum > maximum) {
-            // print("Not found\n");
+            // printf("Not found\n");
             break;
         }
 
